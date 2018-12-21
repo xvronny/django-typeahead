@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include django_typeahead/static *
+recursive-include django_typeahead/templates *
