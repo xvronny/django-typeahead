@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-typeahead',
-    version='1.0.0',
+    version='0.9.0',
     packages=find_packages(),
     description='Django app to add Typeahead.js based input elements.',
     long_description=README,
@@ -19,22 +19,19 @@ setup(
     license='MIT License',
     include_package_data=True,
     install_requires=[
-        "Django>=2.1.0",
-    ],
-    tests_require=[
-        "nose",
-        "coverage",
+        'Django>=2.1'
     ],
     zip_safe=False,
     test_suite="tests.runtests.start",
     author='Ronny Hendrawan',
     author_email='ronny.hendrawan@gmail.com',
+    keywords='django-typeahead',
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
-        'Framework :: Django :: 2.1', 
+        'Framework :: Django :: 2.1',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT License', 
+        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3.5',
