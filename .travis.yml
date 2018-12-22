@@ -16,9 +16,8 @@ matrix:
     - { python: 3.7, env: TOXENV=docs }
     - { python: 3.7, env: TOXENV=flake8 }
 
-      # https://github.com/travis-ci/travis-ci/issues/9815
-      dist: xenial
-      sudo: yes
+    # https://github.com/travis-ci/travis-ci/issues/9815
+    sudo: yes
 
   # we allow failures for now:
   allow_failures:
