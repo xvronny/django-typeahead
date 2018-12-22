@@ -1,30 +1,12 @@
 jQuery(function ($) {
-    var geonames = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.whitespace,
-      queryTokenizer: Bloodhound.tokenizers.whitespace,
-      remote: {
-        url: '/go/geonames/?q=%QUERY',
-        wildcard: '%QUERY',
-        transform: function (data) {        // we modify the prefetch response
-          var newData = [];                 // here to match the response format
-          data.forEach(function (item) {    // of the remote endpoint
-            newData.push(item.name + ', ' + item.country_name);
-          });
-          return newData;
+    $("[tjs_config]:not([disabled])").each(function (i, element) {
+        var $element = $(element), arguments = {};
+        try {
+            arguments = JSON.parse($element.attr('tjs_config'));
         }
-      }
-    });
-
-    $(".typeahead").each(function (i, element) {
-        var $element = $(element), data = {};
-        $element.typeahead({
-          hint: false,
-          highlight: true,
-          minLength: 1
-        },
-        {
-          name: 'geonames',
-          source: geonames
-        });
+        catch (x) { }
+        if (arguments.options && arguments.datasets) {
+            $element.typeahead(arguments.options, arguments.datasets);
+        }
     });
 });
