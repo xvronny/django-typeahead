@@ -26,7 +26,7 @@ author = 'Ronny Hendrawan'
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '0.9.0'
+release = '1.0.0'
 
 
 # -- General configuration ---------------------------------------------------

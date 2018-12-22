@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-typeahead',
-    version='0.9.0',
+    version='1.0.0',
     packages=find_packages(),
     description='Django app to add Typeahead.js based input elements.',
     long_description=README,
@@ -22,11 +22,12 @@ setup(
         'Django>=2.1'
     ],
     zip_safe=False,
-    test_suite="tests.runtests.start",
     author='Ronny Hendrawan',
     author_email='ronny.hendrawan@gmail.com',
     keywords='django-typeahead',
     classifiers=[
+        'Development Status :: 1 - Alpha',
+        'Intended Audience :: Developers',
         'Environment :: Web Environment',
         'Framework :: Django',
         'Framework :: Django :: 2.1',
