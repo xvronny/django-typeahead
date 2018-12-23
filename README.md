@@ -2,6 +2,12 @@
 
 This package contains a Django widget for autocomplete search functionality using Twitter's [typeahead.js ](https://github.com/twitter/typeahead.js) library.
 
+## Requirements
+
+* Python >= 3.4
+* Django >= 2.0
+* jquery >= 1.9
+
 ## Install
 
     pip install django-typeahead
@@ -20,13 +26,12 @@ This installation instruction assumes you have jQuery already present in your pa
 #### forms.py
 
 ```python
-from bootstrap_typeahead.widgets import TypeaheadInput
 from django import forms
+from bootstrap_typeahead.widgets import TypeaheadInput
 
-class SearchForm(forms.Form):
-    todo = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'form-control'}))
-    autocomplete = forms.CharField(
+
+class StateForm(forms.Form):
+    query = forms.CharField(
         widget=TypeaheadInput(
             options={
               'hint': True,
@@ -35,7 +40,7 @@ class SearchForm(forms.Form):
             },
             datasets={
               'name': 'states',
-              'source': substringMatcher(states)
+              'source': 'substringMatcher(states)',
             }
         )
     )
@@ -50,14 +55,15 @@ and are documented and demonstrated here:
 #### template.html
 
 ```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="{% static 'contrib/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'contrib/font-awesome.min.css' %}">
-    <script src="{% static 'contrib/bootstrap.js' %}"></script>
-  </head>
-  <body>
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+
+{% block extra_css %}
+{{ form.media.css }}
+{% endblock %}
+
     <form method="post" role="form">
       {{ form|bootstrap }}
       {% csrf_token %}
@@ -65,16 +71,47 @@ and are documented and demonstrated here:
         <input type="submit" value="Submit" class="btn btn-primary" />
       </div>
     </form>
-  </body>
-</html>
+
+{% bootstrap_javascript jquery='full' %}
+
+{% block extra_js %}
+    <script type="text/javascript">
+    var substringMatcher = function(strs) {
+      return function findMatches(q, cb) {
+        var matches, substringRegex;
+
+        // an array that will be populated with substring matches
+        matches = [];
+
+        // regex used to determine if a string contains the substring `q`
+        substrRegex = new RegExp(q, 'i');
+
+        // iterate through the pool of strings and for any string that
+        // contains the substring `q`, add it to the `matches` array
+        $.each(strs, function(i, str) {
+          if (substrRegex.test(str)) {
+            matches.push(str);
+          }
+        });
+
+        cb(matches);
+      };
+    };
+
+    var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+      'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+      'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+      'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+      'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+      'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+      'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
+      'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+      'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+    ];
+    </script>
+    {{ form.media.js }}
+
+{% endblock %}
 ```
 
-Here we assume you're using [django-bootstrap-form](https://github.com/tzangms/django-bootstrap-form) or
-[django-jinja-bootstrap-form](https://github.com/samuelcolvin/django-jinja-bootstrap-form) but you can
-create your HTML forms manually.
-
-## Requirements
-
-* Python >= 3.4
-* Django >= 2.0
-* jquery >= 1.7.1
+Here we use [django-bootstrap4](https://github.com/zostera/django-bootstrap4) to translate [the basics](https://twitter.github.io/typeahead.js/examples/#the-basics) in Typeahead.js [examples page](https://twitter.github.io/typeahead.js/examples) but you can create your HTML forms manually.

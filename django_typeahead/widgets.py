@@ -2,15 +2,17 @@
 from django import forms
 from json import dumps as json_dumps
 
+from .engines import BloodhoundEncoder
+
 
 class TypeaheadInput(forms.TextInput):
     """
-    Typeahead input class for widgets of this package.
+    Input class for typeahead-enabled widgets.
     """
     input_type = 'search'
     template_name = 'django_typeahead/input.html'
-    options = {}
-    datasets = {}
+    options = None
+    datasets = []
 
     class Media:
         """JS/CSS resources needed to render the typeahead field."""
@@ -23,11 +25,15 @@ class TypeaheadInput(forms.TextInput):
             'django_typeahead/css/typeahead.css',
         ], }
 
-    def __init__(self, attrs={}, options={}, datasets={}):
+    def __init__(self, attrs={}, options={}, datasets=[]):
 
         # copy typeahead arguments, also allow class level declaration
         self.options = options or self.options
         self.datasets = datasets or self.datasets
+
+        # automatically wrap dataset into list if it is singular
+        if isinstance(self.datasets, dict):
+            self.datasets = [self.datasets]
 
         # setup additional attributes for input field
         typeahead_attrs = dict(attrs)
@@ -39,13 +45,17 @@ class TypeaheadInput(forms.TextInput):
         # initialize parent Input class
         super().__init__(typeahead_attrs)
 
+    def to_json(self):
+        """
+        Custom JSON serialization logic, may be expanded with custom BloodhoundEncoder later.
+        """
+        json_attrs = dict(options=self.options, datasets=self.datasets)
+        return json_dumps(json_attrs)
+
     def get_context(self, name, value, attrs):
         """
         Return widget context dictionary with additional typeahead configurations.
         """
         context = super().get_context(name, value, attrs)
-        context['widget']['attrs']['tjs_config'] = json_dumps({
-            'options': self.options,
-            'datasets': self.datasets,
-        })
+        context['widget']['attrs']['tjs_config'] = self.to_json()
         return context
