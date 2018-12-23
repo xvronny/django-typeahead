@@ -1,24 +1,21 @@
-=======================
-Typeahead.js for Django
-=======================
 
-.. image:: https://travis-ci.org/xvronny/django-typeahead.svg?branch=master
-    :target: https://travis-ci.org/xvronny/django-typeahead
+# Typeahead.js for Django
+-------------------------
 
-.. image:: https://img.shields.io/coveralls/xvronny/django-typeahead/master.svg
-    :target: https://coveralls.io/r/xvronny/django-typeahead?branch=master
 
-.. image:: https://img.shields.io/pypi/v/django-typeahead.svg
-    :target: https://pypi.python.org/pypi/django-typeahead
-    :alt: Latest PyPI version
+[![Continuous Integration Status](https://travis-ci.org/xvronny/django-typeahead.svg?branch=master)](https://travis-ci.org/xvronny/django-typeahead)
 
-Typeahead.js integration for Django.
+[![Coverage Status](https://coveralls.io/repos/github/xvronny/django-typeahead/badge.svg?branch=master)](https://coveralls.io/github/xvronny/django-typeahead?branch=master)
+
+[![Latest PyPI version](https://img.shields.io/pypi/v/django-typeahead.svg)](https://pypi.python.org/pypi/django-typeahead)
+
+Twitter's [typeahead.js ](https://github.com/twitter/typeahead.js) integration for Django.
 
 
 Goal
 ----
 
-This package contains a Django widget for autocomplete search functionality using Twitter's [typeahead.js ](https://github.com/twitter/typeahead.js) library.
+The goal of this package is to seamlessly integrate Typeahead.js with Django and other django libraries.
 
 
 Requirements
