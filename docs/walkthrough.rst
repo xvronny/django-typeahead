@@ -1,68 +1,10 @@
-=======================
-Typeahead.js for Django
-=======================
+Walkthrough
+===========
 
-.. image:: https://travis-ci.org/xvronny/django-typeahead.svg?branch=master
-    :target: https://travis-ci.org/xvronny/django-typeahead
-    :alt: Continuous Integration
+This section translates the `first example (basics) <https://twitter.github.io/typeahead.js/examples/#the-basics>`_ sample from Typeahead.js `examples page <https://twitter.github.io/typeahead.js/examples>`_.
 
-.. image:: https://coveralls.io/repos/github/xvronny/django-typeahead/badge.svg?branch=master
-    :target: https://coveralls.io/github/xvronny/django-typeahead?branch=master
-    :alt: Test Coverage
-
-.. image:: https://img.shields.io/pypi/v/django-typeahead.svg
-    :target: https://pypi.python.org/pypi/django-typeahead
-    :alt: Latest PyPI version
-
-
-Django thin wrapper for Twitter's `Typeahead.js <https://github.com/twitter/typeahead.js>`_ library.
-
-
-Goal
-----
-
-The goal of this package is to seamlessly integrate Typeahead.js with Django and other django libraries.
-
-
-Documentation
--------------
-
-The full documentation is at https://django-typeahead.readthedocs.io/
-
-Requirements
-------------
-
-* Python >= 3.5
-* Django >= 2.1
-* jquery >= 1.9
-
-
-Installation
-------------
-
-1. Install using pip:
-
-   ``pip install django-typeahead``
-
-2. Add ``bootstrap_typeahead`` to the list of ``INSTALLED_APPS`` in your ``settings.py`` file:
-
-  .. code-block:: python
-
-     INSTALLED_APPS = [
-         # ...
-         'bootstrap_typeahead',
-     ]
-
-This installation instruction assumes you have jQuery already present in your page.
-
-
-Example
--------
-
-This sample section translates the `first example (basics) <https://twitter.github.io/typeahead.js/examples/#the-basics>`_ sample from Typeahead.js `examples page <https://twitter.github.io/typeahead.js/examples>`_.
-
-forms.py
-^^^^^^^^
+Using ``TypeaheadInput``
+------------------------
 
 The input widget ``TypeaheadInput`` would be used as a widget in Django forms.
 
@@ -93,8 +35,8 @@ and are documented and demonstrated here:
 * `Bloodhound Documentation <https://github.com/twitter/typeahead.js/blob/master/doc/bloodhound.md>`_
 * `Interactive Demo <https://twitter.github.io/typeahead.js/examples/>`_
 
-template.html
-^^^^^^^^^^^^^
+Creating a Template
+-------------------
 
 The initialization of suggestions list should be added to the page - in this case we are using snippet from `basic example <https://twitter.github.io/typeahead.js/examples/#the-basics>`_ from Typeahead.js demo page.
 
@@ -159,15 +101,3 @@ The initialization of suggestions list should be added to the page - in this cas
     {% endblock %}
 
 Here we use `django-bootstrap4 <https://github.com/zostera/django-bootstrap4>`_ but you can create your HTML forms manually.
-
-License
--------
-
-You can use this under MIT License. See `LICENSE <https://github.com/xvronny/django-typeahead/blob/master/LICENSE>`_ file for details.
-
-Bugs and Suggestions
---------------------
-
-If you have found a bug or if you have a request for additional functionality, please use the issue tracker on GitHub.
-
-https://github.com/xvronny/django-typeahead/issues
