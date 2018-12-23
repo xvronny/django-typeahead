@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-typeahead',
-    version='1.0.0',
+    version='1.0.1',
     packages=find_packages(),
     description='Django app to add Typeahead.js based input elements.',
     long_description=README,
