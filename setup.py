@@ -1,5 +1,11 @@
 import os
+import re
+
 from setuptools import find_packages, setup
+
+# Read version from app
+with open("django_typeahead/__init__.py", "rb") as f:
+    VERSION = str(re.search('__version__ = "(.+?)"', f.read().decode("utf-8")).group(1))
 
 with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     README = readme.read()
@@ -9,7 +15,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-typeahead',
-    version='1.0.1',
+    version=VERSION,
     packages=find_packages(),
     description='Django app to add Typeahead.js based input elements.',
     long_description=README,

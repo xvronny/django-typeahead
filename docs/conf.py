@@ -12,22 +12,26 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+sys.path.insert(0, os.path.abspath(".."))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__))))
+os.environ["DJANGO_SETTINGS_MODULE"] = "testsettings"
+
+# This import can only be done after the sys.path has been changed
+import django_typeahead  # noqa
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'Django Typeahead'
+project = 'django-typeahead'
 copyright = '2018, Ronny Hendrawan'
 author = 'Ronny Hendrawan'
 
-# The short X.Y version
-version = ''
-# The full version, including alpha/beta/rc tags
-release = '1.0.1'
-
+# The short X.Y version.
+version = django_typeahead.__version__
+# The full version, including alpha/beta/rc tags.
+release = django_typeahead.__version__
 
 # -- General configuration ---------------------------------------------------
 
@@ -39,6 +43,7 @@ release = '1.0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.githubpages',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -101,7 +106,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'DjangoTypeaheaddoc'
+htmlhelp_basename = 'django-typeaheaddoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -128,7 +133,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'DjangoTypeahead.tex', 'Django Typeahead Documentation',
+    (master_doc, 'django-typeahead.tex', 'django-typeahead Documentation',
      'Ronny Hendrawan', 'manual'),
 ]
 
@@ -138,7 +143,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'djangotypeahead', 'Django Typeahead Documentation',
+    (master_doc, 'django-typeahead', 'django-typeahead Documentation',
      [author], 1)
 ]
 
@@ -149,8 +154,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'DjangoTypeahead', 'Django Typeahead Documentation',
-     author, 'DjangoTypeahead', 'One line description of project.',
+    (master_doc, 'django-typeahead', 'django-typeahead Documentation',
+     author, 'django-typeahead', 'One line description of project.',
      'Miscellaneous'),
 ]
 
@@ -171,3 +176,6 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
+
+
+# -- Extension configuration -------------------------------------------------

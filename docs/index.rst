@@ -1,9 +1,9 @@
-.. Django Typeahead documentation master file, created by
-   sphinx-quickstart on Fri Dec 21 19:37:36 2018.
+.. django-typeahead documentation master file, created by
+   sphinx-quickstart on Sun Dec 23 18:34:19 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Django Typeahead's documentation!
+Welcome to django-typeahead's documentation!
 ============================================
 
 .. toctree::
