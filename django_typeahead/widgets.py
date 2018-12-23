@@ -2,8 +2,6 @@
 from django import forms
 from json import dumps as json_dumps
 
-from .engines import BloodhoundEncoder
-
 
 class TypeaheadInput(forms.TextInput):
     """
