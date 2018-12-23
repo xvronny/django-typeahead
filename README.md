@@ -1,14 +1,36 @@
-# django-typeahead
+=======================
+Typeahead.js for Django
+=======================
+
+.. image:: https://travis-ci.org/xvronny/django-typeahead.svg?branch=master
+    :target: https://travis-ci.org/xvronny/django-typeahead
+
+.. image:: https://img.shields.io/coveralls/xvronny/django-typeahead/master.svg
+    :target: https://coveralls.io/r/xvronny/django-typeahead?branch=master
+
+.. image:: https://img.shields.io/pypi/v/django-typeahead.svg
+    :target: https://pypi.python.org/pypi/django-typeahead
+    :alt: Latest PyPI version
+
+Typeahead.js integration for Django.
+
+
+Goal
+----
 
 This package contains a Django widget for autocomplete search functionality using Twitter's [typeahead.js ](https://github.com/twitter/typeahead.js) library.
 
-## Requirements
+
+Requirements
+------------
 
 * Python >= 3.4
 * Django >= 2.0
 * jquery >= 1.9
 
-## Install
+
+Installation
+------------
 
     pip install django-typeahead
 
@@ -21,7 +43,9 @@ Add `bootstrap_typeahead` to the list of INSTALLED_APPS in your settings.py file
 
 This installation instruction assumes you have jQuery already present in your page.
 
-## Example
+
+Example
+-------
 
 #### forms.py
 
@@ -115,3 +139,11 @@ and are documented and demonstrated here:
 ```
 
 Here we use [django-bootstrap4](https://github.com/zostera/django-bootstrap4) to translate [the basics](https://twitter.github.io/typeahead.js/examples/#the-basics) in Typeahead.js [examples page](https://twitter.github.io/typeahead.js/examples) but you can create your HTML forms manually.
+
+
+Bugs and Suggestions
+--------------------
+
+If you have found a bug or if you have a request for additional functionality, please use the issue tracker on GitHub.
+
+https://github.com/xvronny/django-typeahead/issues
