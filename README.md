@@ -1,12 +1,9 @@
 
 # Typeahead.js for Django
--------------------------
 
 
 [![Continuous Integration Status](https://travis-ci.org/xvronny/django-typeahead.svg?branch=master)](https://travis-ci.org/xvronny/django-typeahead)
-
 [![Coverage Status](https://coveralls.io/repos/github/xvronny/django-typeahead/badge.svg?branch=master)](https://coveralls.io/github/xvronny/django-typeahead?branch=master)
-
 [![Latest PyPI version](https://img.shields.io/pypi/v/django-typeahead.svg)](https://pypi.python.org/pypi/django-typeahead)
 
 Twitter's [typeahead.js ](https://github.com/twitter/typeahead.js) integration for Django.
