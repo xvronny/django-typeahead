@@ -1,7 +1,7 @@
 import os
 from setuptools import find_packages, setup
 
-with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
+with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     README = readme.read()
 
 # allow setup.py to be run from any path
@@ -13,7 +13,6 @@ setup(
     packages=find_packages(),
     description='Django app to add Typeahead.js based input elements.',
     long_description=README,
-    long_description_content_type='text/markdown',
     url='https://github.com/xvronny/django-typeahead/',
     download_url='https://github.com/xvronny/django-typeahead.git',
     license='MIT License',
@@ -26,7 +25,7 @@ setup(
     author_email='ronny.hendrawan@gmail.com',
     keywords='django-typeahead',
     classifiers=[
-        'Development Status :: 1 - Alpha',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Environment :: Web Environment',
         'Framework :: Django',
@@ -37,7 +36,7 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
-        'Topic :: Internet :: WWW/HTTP',
-        'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+        'Topic :: Software Development :: Libraries',
+        'Topic :: Utilities',
     ],
 )

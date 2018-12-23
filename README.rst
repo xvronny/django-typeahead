@@ -1,12 +1,21 @@
+=======================
+Typeahead.js for Django
+=======================
 
-# Typeahead.js for Django
+.. image:: https://travis-ci.org/xvronny/django-typeahead.svg?branch=master
+    :target: https://travis-ci.org/xvronny/django-typeahead
+    :alt: Continuous Integration
+
+.. image:: https://coveralls.io/repos/github/xvronny/django-typeahead/badge.svg?branch=master
+    :target: https://coveralls.io/github/xvronny/django-typeahead?branch=master
+    :alt: Test Coverage
+
+.. image:: https://img.shields.io/pypi/v/django-typeahead.svg
+    :target: https://pypi.python.org/pypi/django-typeahead
+    :alt: Latest PyPI version
 
 
-[![Continuous Integration Status](https://travis-ci.org/xvronny/django-typeahead.svg?branch=master)](https://travis-ci.org/xvronny/django-typeahead)
-[![Coverage Status](https://coveralls.io/repos/github/xvronny/django-typeahead/badge.svg?branch=master)](https://coveralls.io/github/xvronny/django-typeahead?branch=master)
-[![Latest PyPI version](https://img.shields.io/pypi/v/django-typeahead.svg)](https://pypi.python.org/pypi/django-typeahead)
-
-Twitter's [typeahead.js ](https://github.com/twitter/typeahead.js) integration for Django.
+Django thin wrapper for Twitter's [typeahead.js ](https://github.com/twitter/typeahead.js) library.
 
 
 Goal
@@ -26,14 +35,17 @@ Requirements
 Installation
 ------------
 
-    pip install django-typeahead
+1. Install using pip:
 
-Add `bootstrap_typeahead` to the list of INSTALLED_APPS in your settings.py file.
+   ``pip install django-typeahead``
 
-    INSTALLED_APPS = [
-        # ...
-        'bootstrap_typeahead',
-    ]
+2. Add ``bootstrap_typeahead`` to the list of INSTALLED_APPS in your ``settings.py`` file:
+
+.. code-block:: python
+     INSTALLED_APPS = [
+         # ...
+         'bootstrap_typeahead',
+     ]
 
 This installation instruction assumes you have jQuery already present in your page.
 
@@ -41,28 +53,30 @@ This installation instruction assumes you have jQuery already present in your pa
 Example
 -------
 
-#### forms.py
+This sample section translates [the basics](https://twitter.github.io/typeahead.js/examples/#the-basics) sample from
+Typeahead.js [examples page](https://twitter.github.io/typeahead.js/examples).
 
-```python
-from django import forms
-from bootstrap_typeahead.widgets import TypeaheadInput
+forms.py
+^^^^^^^^
 
+.. code-block:: python
+    from django import forms
+    from bootstrap_typeahead.widgets import TypeaheadInput
 
-class StateForm(forms.Form):
-    query = forms.CharField(
-        widget=TypeaheadInput(
-            options={
-              'hint': True,
-              'highlight': True,
-              'minLength': 1
-            },
-            datasets={
-              'name': 'states',
-              'source': 'substringMatcher(states)',
-            }
+    class StateForm(forms.Form):
+        query = forms.CharField(
+            widget=TypeaheadInput(
+                options={
+                  'hint': True,
+                  'highlight': True,
+                  'minLength': 1
+                },
+                datasets={
+                  'name': 'states',
+                  'source': 'substringMatcher(states)',
+                }
+            )
         )
-    )
-```
 
 The `options` and `datasets` argument will be passed to the JavaScript typeahead instance,
 and are documented and demonstrated here:
@@ -70,7 +84,8 @@ and are documented and demonstrated here:
 * [Typeahead Docs](https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md) and [Bloodhound Docs](https://github.com/twitter/typeahead.js/blob/master/doc/bloodhound.md)
 * [Interactive Demo](https://twitter.github.io/typeahead.js/examples/)
 
-#### template.html
+template.html
+^^^^^^^^^^^^^
 
 ```html
 {% load bootstrap4 %}
@@ -83,8 +98,8 @@ and are documented and demonstrated here:
 {% endblock %}
 
     <form method="post" role="form">
-      {{ form|bootstrap }}
-      {% csrf_token %}
+    {% csrf_token %}
+    {% bootstrap_form form %}
       <div class="form-group">
         <input type="submit" value="Submit" class="btn btn-primary" />
       </div>
@@ -132,7 +147,7 @@ and are documented and demonstrated here:
 {% endblock %}
 ```
 
-Here we use [django-bootstrap4](https://github.com/zostera/django-bootstrap4) to translate [the basics](https://twitter.github.io/typeahead.js/examples/#the-basics) in Typeahead.js [examples page](https://twitter.github.io/typeahead.js/examples) but you can create your HTML forms manually.
+Here we use [django-bootstrap4](https://github.com/zostera/django-bootstrap4) but you can create your HTML forms manually.
 
 
 Bugs and Suggestions

@@ -34,11 +34,11 @@ class TypeaheadInput(forms.TextInput):
             self.datasets = [self.datasets]
 
         # setup additional attributes for input field
-        typeahead_attrs = dict(attrs)
-        if attrs:
-            input_classes = attrs.get('class', '').split(' ')
-            typeahead_attrs['class'] = ' '.join(input_classes + ['typeahead'])
-            typeahead_attrs['autocomplete'] = 'off'
+        typeahead_attrs = dict(attrs) if attrs else dict()
+        input_classes = typeahead_attrs.get('class', '').split(' ')
+
+        typeahead_attrs['class'] = ' '.join(input_classes + ['typeahead'])
+        typeahead_attrs['autocomplete'] = 'off'
 
         # initialize parent Input class
         super().__init__(typeahead_attrs)
