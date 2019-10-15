@@ -24,7 +24,7 @@ setup(
     license='MIT License',
     include_package_data=True,
     install_requires=[
-        'Django>=2.1'
+        'Django>=2.0'
     ],
     zip_safe=False,
     author='Ronny Hendrawan',
