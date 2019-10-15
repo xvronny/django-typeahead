@@ -50,7 +50,7 @@ Installation
 
      INSTALLED_APPS = [
          # ...
-         'bootstrap_typeahead',
+         'django_typeahead',
      ]
 
 This installation instruction assumes you have jQuery already present in your page.
@@ -69,7 +69,7 @@ The input widget ``TypeaheadInput`` would be used as a widget in Django forms.
 .. code-block:: python
 
     from django import forms
-    from bootstrap_typeahead.widgets import TypeaheadInput
+    from django_typeahead.widgets import TypeaheadInput
 
     class StateForm(forms.Form):
         query = forms.CharField(
