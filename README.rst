@@ -44,7 +44,7 @@ Installation
 
    ``pip install django-typeahead``
 
-2. Add ``bootstrap_typeahead`` to the list of ``INSTALLED_APPS`` in your ``settings.py`` file:
+2. Add ``django_typeahead`` to the list of ``INSTALLED_APPS`` in your ``settings.py`` file:
 
   .. code-block:: python
 
